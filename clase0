@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Inicial: Análisis de Datos en Recursos Humanos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+        td {
+            text-align: center;
+        }
+        .collapsible {
+            background-color: #f9f9f9;
+            color: #444;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+        .active, .collapsible:hover {
+            background-color: #ccc;
+        }
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Ejercicio Inicial: Análisis de Datos en Recursos Humanos</h2>
+
+<p>Anualmente, la empresa premia al mejor departamento basado en el desempeño en términos de cumplimiento de objetivos y satisfacción del empleado. Este año, se han recopilado los datos de cuatro departamentos diferentes y se han resumido en las siguientes métricas. Sin embargo, el gerente del Departamento de Recursos Humanos ha cuestionado la validez de estos datos, alegando posible manipulación y sugiriendo que los datos no reflejan la verdadera eficiencia de los departamentos.</p>
+
+<button class="collapsible">Ver Datos Resumidos</button>
+<div class="content">
+    <table>
+        <tr>
+            <th>Departamento</th>
+            <th>Promedio Cumplimiento de Objetivos (%)</th>
+            <th>Desviación Estándar Cumplimiento (%)</th>
+            <th>Promedio Satisfacción del Empleado (%)</th>
+            <th>Desviación Estándar Satisfacción (%)</th>
+            <th>Correlación</th>
+        </tr>
+        <tr>
+            <td>Ventas</td>
+            <td>90%</td>
+            <td>10%</td>
+            <td>75%</td>
+            <td>6%</td>
+            <td>0.82</td>
+        </tr>
+        <tr>
+            <td>Marketing</td>
+            <td>90%</td>
+            <td>10%</td>
+            <td>75%</td>
+            <td>6%</td>
+            <td>0.82</td>
+        </tr>
+        <tr>
+            <td>Finanzas</td>
+            <td>90%</td>
+            <td>10%</td>
+            <td>75%</td>
+            <td>6%</td>
+            <td>0.82</td>
+        </tr>
+        <tr>
+            <td>Recursos Humanos</td>
+            <td>90%</td>
+            <td>10%</td>
+            <td>75%</td>
+            <td>6%</td>
+            <td>0.82</td>
+        </tr>
+    </table>
+</div>
+
+<p>Con base en estos datos, parece que todos los departamentos tienen métricas de desempeño similares en términos de cumplimiento de objetivos y satisfacción del empleado. ¿Deberíamos concluir que todos los departamentos tienen el mismo nivel de desempeño y premiar a todos por igual? ¿O hay algo más que deberíamos considerar antes de tomar una decisión?</p>
+
+<p><strong>Desafío:</strong> El gerente del Departamento de Recursos Humanos argumenta que los datos han sido manipulados y que los números presentados no reflejan la realidad. Considera que hay un análisis más profundo que debe realizarse para entender las verdaderas diferencias entre los departamentos.</p>
+
+<p><strong>Nota para los estudiantes:</strong> Este ejercicio se resolverá en la clase en vivo. Discutiremos cómo herramientas como Excel pueden ayudarnos a analizar y visualizar los datos para tomar decisiones informadas. Antes de resolver el problema, es importante que entendamos conceptos básicos como la limpieza de datos, el uso de listas desplegables y otras funciones esenciales.</p>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

@@ -3,125 +3,424 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio Inicial: Análisis de Datos en Recursos Humanos</title>
+    <title>Asesoría en Datos, Power BI, Automatización e IA para Ejecutivos en Chile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg: #0b1224;
+            --panel: #0f1b33;
+            --card: #132345;
+            --text: #e9edf5;
+            --muted: #b8c1d6;
+            --accent: #3b82f6;
+            --accent-2: #22c55e;
+            --border: rgba(255,255,255,0.08);
+            --shadow: 0 20px 50px rgba(0,0,0,0.35);
+        }
+        * { box-sizing: border-box; }
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: radial-gradient(circle at 20% 20%, rgba(59,130,246,0.15), transparent 25%),
+                        radial-gradient(circle at 80% 10%, rgba(34,197,94,0.12), transparent 22%),
+                        linear-gradient(135deg, #0b1224 0%, #0a0f1f 60%, #0b1224 100%);
+            color: var(--text);
             line-height: 1.6;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
+        header {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 22px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
         }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
         }
-        th {
-            background-color: #f2f2f2;
+        .brand span {
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: #0a0f1f;
+            font-weight: 800;
+        }
+        .cta-header {
+            padding: 10px 14px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .cta-header:hover {
+            border-color: rgba(255,255,255,0.25);
+            transform: translateY(-1px);
+        }
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 22px 36px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            align-items: center;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(59,130,246,0.14);
+            color: #bfdbfe;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.2px;
+        }
+        h1 {
+            font-size: clamp(28px, 4vw, 44px);
+            margin: 12px 0 14px;
+            line-height: 1.2;
+        }
+        .sub {
+            color: var(--muted);
+            margin: 0 0 18px;
+            font-size: 17px;
+            max-width: 700px;
+        }
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: #0a0f1f;
+            padding: 14px 18px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 24px 55px rgba(34,197,94,0.3);
+        }
+        .secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .panel {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 22px;
+            box-shadow: var(--shadow);
+        }
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin-top: 14px;
+        }
+        .metric {
+            padding: 12px 14px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+        }
+        .metric strong {
+            display: block;
+            font-size: 22px;
+            color: #fff;
+        }
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 14px 22px 60px;
+            display: grid;
+            gap: 18px;
+        }
+        section {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: var(--shadow);
+        }
+        h2 {
+            margin: 0 0 10px;
+            font-size: 22px;
+        }
+        .muted { color: var(--muted); }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+            margin-top: 12px;
+        }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 14px;
+        }
+        .card h3 {
+            margin: 0 0 6px;
+            font-size: 17px;
+        }
+        .card p {
+            margin: 0;
+            color: var(--muted);
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 18px;
+            color: var(--muted);
+        }
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .pill {
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.06);
+            color: var(--text);
+            font-weight: 600;
+            font-size: 13px;
+        }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-top: 10px;
+        }
+        .step {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 12px 14px;
+        }
+        .step strong {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 10px;
+            background: rgba(59,130,246,0.15);
+            color: #bfdbfe;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+        .cta-block {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 12px;
+            align-items: center;
+        }
+        .cta-card {
+            background: linear-gradient(135deg, rgba(59,130,246,0.16), rgba(34,197,94,0.16));
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 16px;
+        }
+        footer {
             text-align: center;
+            padding: 16px;
+            color: var(--muted);
+            font-size: 14px;
         }
-        td {
-            text-align: center;
-        }
-        .collapsible {
-            background-color: #f9f9f9;
-            color: #444;
-            cursor: pointer;
-            padding: 10px;
-            width: 100%;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 15px;
-        }
-        .active, .collapsible:hover {
-            background-color: #ccc;
-        }
-        .content {
-            padding: 0 18px;
-            display: none;
-            overflow: hidden;
-            background-color: #f1f1f1;
+        @media (max-width: 720px) {
+            header { flex-direction: column; align-items: flex-start; }
+            .hero { padding-top: 10px; }
         }
     </style>
 </head>
 <body>
+    <header>
+        <div class="brand">
+            <span>BI</span>
+            Asesoría Datos & IA · Chile
+        </div>
+        <a class="cta-header" href="mailto:hola@asesoriadatospremium.cl?subject=Quiero%20agendar%20una%20reuni%C3%B3n">Agendar diagnóstico</a>
+    </header>
 
-<h2>Ejercicio Inicial: Análisis de Datos en Recursos Humanos</h2>
+    <section class="hero panel">
+        <div>
+            <div class="badge">Para gerentes, administradores y CEOs en Chile</div>
+            <h1>Convierte datos, automatización e IA en decisiones claras y rápidas</h1>
+            <p class="sub">Implementamos dashboards en Power BI, flujos con Power Automate y casos de IA generativa enfocados en resultados del negocio, sin jerga técnica. Trabajamos contigo y tu equipo para lograr visibilidad, velocidad y confianza en la información.</p>
+            <div style="display:flex; gap:14px; flex-wrap: wrap;">
+                <a class="cta" href="mailto:hola@asesoriadatospremium.cl?subject=Quiero%20agendar%20una%20reuni%C3%B3n">Agendar llamada gratuita →</a>
+                <a class="secondary" href="#servicios">Ver servicios</a>
+            </div>
+            <div class="metrics">
+                <div class="metric">
+                    <strong>70% menos tiempo</strong>
+                    en preparar reportes mensuales.
+                </div>
+                <div class="metric">
+                    <strong>Alertas en minutos</strong>
+                    cuando ventas, costos o SLA se desvían.
+                </div>
+                <div class="metric">
+                    <strong>Casos validados</strong>
+                    Retail, servicios B2B, educación y finanzas.
+                </div>
+            </div>
+        </div>
+        <div class="cta-card">
+            <h3 style="margin: 0 0 8px;">Tablero ejecutivo y automatización en 2 semanas</h3>
+            <p class="muted" style="margin: 0 0 12px;">Prototipo rápido para validar valor y usabilidad con tu equipo directivo.</p>
+            <ul>
+                <li>Indicadores clave con trazabilidad.</li>
+                <li>Alertas y aprobaciones automáticas.</li>
+                <li>Capacitación breve para lectura del tablero.</li>
+            </ul>
+            <a class="cta" style="margin-top: 10px;" href="mailto:hola@asesoriadatospremium.cl?subject=Quiero%20un%20prototipo%20en%202%20semanas">Solicitar prototipo →</a>
+        </div>
+    </section>
 
-<p>Anualmente, la empresa premia al mejor departamento basado en el desempeño en términos de cumplimiento de objetivos y satisfacción del empleado. Este año, se han recopilado los datos de cuatro departamentos diferentes y se han resumido en las siguientes métricas. Sin embargo, el gerente del Departamento de Recursos Humanos ha cuestionado la validez de estos datos, alegando posible manipulación y sugiriendo que los datos no reflejan la verdadera eficiencia de los departamentos.</p>
+    <main>
+        <section id="problemas">
+            <h2>Lo que resolvemos para la dirección</h2>
+            <p class="muted">Diseñamos soluciones para que las gerencias tomen decisiones con datos confiables y sin fricción.</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Visibilidad inmediata</h3>
+                    <p>Consolida ventas, costos y operaciones en un solo tablero con alertas proactivas.</p>
+                </div>
+                <div class="card">
+                    <h3>Tiempo recuperado</h3>
+                    <p>Automatizamos aprobaciones, reportes y recordatorios para reducir tareas manuales.</p>
+                </div>
+                <div class="card">
+                    <h3>Confianza en los datos</h3>
+                    <p>Modelos de datos con trazabilidad, control de accesos y definiciones claras.</p>
+                </div>
+                <div class="card">
+                    <h3>Adopción sin jerga</h3>
+                    <p>Capacitaciones ejecutivas y guías simples para que el uso sea inmediato.</p>
+                </div>
+            </div>
+        </section>
 
-<button class="collapsible">Ver Datos Resumidos</button>
-<div class="content">
-    <table>
-        <tr>
-            <th>Departamento</th>
-            <th>Promedio Cumplimiento de Objetivos (%)</th>
-            <th>Desviación Estándar Cumplimiento (%)</th>
-            <th>Promedio Satisfacción del Empleado (%)</th>
-            <th>Desviación Estándar Satisfacción (%)</th>
-            <th>Correlación</th>
-        </tr>
-        <tr>
-            <td>Ventas</td>
-            <td>90%</td>
-            <td>10%</td>
-            <td>75%</td>
-            <td>6%</td>
-            <td>0.82</td>
-        </tr>
-        <tr>
-            <td>Marketing</td>
-            <td>90%</td>
-            <td>10%</td>
-            <td>75%</td>
-            <td>6%</td>
-            <td>0.82</td>
-        </tr>
-        <tr>
-            <td>Finanzas</td>
-            <td>90%</td>
-            <td>10%</td>
-            <td>75%</td>
-            <td>6%</td>
-            <td>0.82</td>
-        </tr>
-        <tr>
-            <td>Recursos Humanos</td>
-            <td>90%</td>
-            <td>10%</td>
-            <td>75%</td>
-            <td>6%</td>
-            <td>0.82</td>
-        </tr>
-    </table>
-</div>
+        <section id="servicios">
+            <h2>Servicios clave</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Dashboards en Power BI</h3>
+                    <p>Indicadores en tiempo real, storytelling para directorio y exportables listos para comité.</p>
+                </div>
+                <div class="card">
+                    <h3>Automatización con Power Automate</h3>
+                    <p>Flujos de aprobación, conciliaciones, recordatorios y conexión ERP/CRM/planillas.</p>
+                </div>
+                <div class="card">
+                    <h3>Casos de IA generativa</h3>
+                    <p>Resumen de minutas, clasificación de tickets y redacción asistida para ventas y operaciones.</p>
+                </div>
+                <div class="card">
+                    <h3>Gobernanza y calidad de datos</h3>
+                    <p>Roles, estándares y controles para que la información sea consistente y segura.</p>
+                </div>
+            </div>
+            <div class="pill-row">
+                <div class="pill">Power BI</div>
+                <div class="pill">Power Automate</div>
+                <div class="pill">IA generativa</div>
+                <div class="pill">Analytics</div>
+                <div class="pill">Gobernanza</div>
+                <div class="pill">Onboarding ejecutivo</div>
+            </div>
+        </section>
 
-<p>Con base en estos datos, parece que todos los departamentos tienen métricas de desempeño similares en términos de cumplimiento de objetivos y satisfacción del empleado. ¿Deberíamos concluir que todos los departamentos tienen el mismo nivel de desempeño y premiar a todos por igual? ¿O hay algo más que deberíamos considerar antes de tomar una decisión?</p>
+        <section id="resultados">
+            <h2>Resultados que puedes esperar</h2>
+            <ul>
+                <li><strong style="color: var(--accent-2);">70% menos tiempo</strong> en preparación de reportes mensuales y cierres.</li>
+                <li><strong style="color: var(--accent-2);">Alertas proactivas</strong> cuando ventas, costos o niveles de servicio se desvían.</li>
+                <li><strong style="color: var(--accent-2);">Indicadores consistentes</strong> para directorios y comités, con respaldo en datos trazables.</li>
+                <li><strong style="color: var(--accent-2);">Adopción rápida</strong> con capacitación ejecutiva y manual de lectura claro.</li>
+            </ul>
+        </section>
 
-<p><strong>Desafío:</strong> El gerente del Departamento de Recursos Humanos argumenta que los datos han sido manipulados y que los números presentados no reflejan la realidad. Considera que hay un análisis más profundo que debe realizarse para entender las verdaderas diferencias entre los departamentos.</p>
+        <section id="proceso">
+            <h2>Cómo trabajamos</h2>
+            <div class="steps">
+                <div class="step">
+                    <strong>1. Diagnóstico</strong>
+                    <p>Sesión de 45 minutos para entender objetivos y brechas de información.</p>
+                </div>
+                <div class="step">
+                    <strong>2. Prototipo rápido</strong>
+                    <p>Primer tablero o flujo automatizado en menos de 2 semanas para validar valor.</p>
+                </div>
+                <div class="step">
+                    <strong>3. Entrega y adopción</strong>
+                    <p>Capacitaciones breves, manual ejecutivo y acompañamiento inicial.</p>
+                </div>
+                <div class="step">
+                    <strong>4. Escala y gobierno</strong>
+                    <p>Controles de calidad, accesos y mejoras continuas para mantener el valor.</p>
+                </div>
+            </div>
+        </section>
 
-<p><strong>Nota para los estudiantes:</strong> Este ejercicio se resolverá en la clase en vivo. Discutiremos cómo herramientas como Excel pueden ayudarnos a analizar y visualizar los datos para tomar decisiones informadas. Antes de resolver el problema, es importante que entendamos conceptos básicos como la limpieza de datos, el uso de listas desplegables y otras funciones esenciales.</p>
+        <section id="casos">
+            <h2>Casos recientes en Chile</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Retail regional</h3>
+                    <p>Unimos ventas y stock de 4 sucursales. Alertas diarias cuando la rotación cae bajo objetivo.</p>
+                </div>
+                <div class="card">
+                    <h3>Servicios B2B</h3>
+                    <p>Aprobaciones y facturación automatizadas. Ciclo de cobro bajó de 5 a 1 día.</p>
+                </div>
+                <div class="card">
+                    <h3>Educación</h3>
+                    <p>Dashboards de matrícula y morosidad para rectoría, con escenarios de flujo de caja.</p>
+                </div>
+                <div class="card">
+                    <h3>Finanzas</h3>
+                    <p>Conciliación automática y trazabilidad de KPIs clave para el comité de riesgos.</p>
+                </div>
+            </div>
+        </section>
 
-<script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
+        <section id="cta">
+            <div class="cta-block">
+                <div>
+                    <h2>Listo para ver tu primer tablero en 2 semanas</h2>
+                    <p class="muted">Agenda una conversación breve para mapear tus indicadores críticos y priorizar el caso de mayor impacto.</p>
+                </div>
+                <div style="display:flex; gap:12px; flex-wrap: wrap;">
+                    <a class="cta" href="mailto:hola@asesoriadatospremium.cl?subject=Quiero%20agendar%20una%20reuni%C3%B3n">Agendar llamada →</a>
+                    <a class="secondary" href="mailto:hola@asesoriadatospremium.cl?subject=Quiero%20ver%20ejemplos">Solicitar ejemplos</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-        });
-    }
-</script>
-
+    <footer>
+        Basado en proyectos con empresas chilenas y experiencia ejecutiva en datos, automatización e IA aplicada al negocio.
+    </footer>
 </body>
 </html>

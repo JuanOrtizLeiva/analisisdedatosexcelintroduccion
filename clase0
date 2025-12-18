@@ -3,243 +3,418 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asesorías en Power BI, Automatización e IA para Ejecutivos en Chile</title>
+    <title>Asesoría en Datos, Power BI, Automatización e IA para Ejecutivos en Chile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0f172a;
-            --card: #0b243a;
-            --accent: #10b981;
-            --text: #e2e8f0;
-            --muted: #cbd5e1;
+            --bg: #0b1224;
+            --panel: #0f1b33;
+            --card: #132345;
+            --text: #e9edf5;
+            --muted: #b8c1d6;
+            --accent: #3b82f6;
+            --accent-2: #22c55e;
+            --border: rgba(255,255,255,0.08);
+            --shadow: 0 20px 50px rgba(0,0,0,0.35);
         }
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
         body {
             margin: 0;
-            font-family: 'Inter', Arial, sans-serif;
-            background: radial-gradient(circle at 20% 20%, rgba(16,185,129,0.15), transparent 25%), radial-gradient(circle at 80% 0%, rgba(37,99,235,0.15), transparent 25%), var(--bg);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: radial-gradient(circle at 20% 20%, rgba(59,130,246,0.15), transparent 25%),
+                        radial-gradient(circle at 80% 10%, rgba(34,197,94,0.12), transparent 22%),
+                        linear-gradient(135deg, #0b1224 0%, #0a0f1f 60%, #0b1224 100%);
             color: var(--text);
             line-height: 1.6;
         }
         header {
-            padding: 64px 20px 40px;
-            text-align: center;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 32px 22px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
         }
-        .badge {
-            display: inline-block;
-            padding: 6px 12px;
-            border-radius: 999px;
-            background: rgba(16,185,129,0.15);
-            color: var(--accent);
-            font-weight: 600;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
             letter-spacing: 0.3px;
         }
+        .brand span {
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: #0a0f1f;
+            font-weight: 800;
+        }
+        .cta-header {
+            padding: 10px 14px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        .cta-header:hover {
+            border-color: rgba(255,255,255,0.25);
+            transform: translateY(-1px);
+        }
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 22px 36px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            align-items: center;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(59,130,246,0.14);
+            color: #bfdbfe;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.2px;
+        }
         h1 {
-            margin: 18px 0 12px;
-            font-size: clamp(28px, 5vw, 46px);
+            font-size: clamp(28px, 4vw, 44px);
+            margin: 12px 0 14px;
             line-height: 1.2;
         }
-        .subtitle {
-            margin: 0 auto 28px;
-            max-width: 820px;
+        .sub {
             color: var(--muted);
-            font-size: 18px;
+            margin: 0 0 18px;
+            font-size: 17px;
+            max-width: 700px;
         }
         .cta {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: var(--accent);
-            color: #0f172a;
-            padding: 14px 20px;
-            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: #0a0f1f;
+            padding: 14px 18px;
+            border-radius: 12px;
             font-weight: 700;
             text-decoration: none;
-            box-shadow: 0 12px 30px rgba(16,185,129,0.35);
+            box-shadow: var(--shadow);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 16px 36px rgba(16,185,129,0.45);
+            box-shadow: 0 24px 55px rgba(34,197,94,0.3);
+        }
+        .secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .panel {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 22px;
+            box-shadow: var(--shadow);
+        }
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin-top: 14px;
+        }
+        .metric {
+            padding: 12px 14px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+        }
+        .metric strong {
+            display: block;
+            font-size: 22px;
+            color: #fff;
         }
         main {
-            padding: 0 20px 60px;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 14px 22px 60px;
             display: grid;
-            gap: 28px;
+            gap: 18px;
         }
         section {
-            background: var(--card);
-            border: 1px solid rgba(148,163,184,0.15);
+            background: var(--panel);
+            border: 1px solid var(--border);
             border-radius: 18px;
-            padding: 24px 24px 18px;
-            box-shadow: 0 12px 30px rgba(15,23,42,0.35);
+            padding: 22px;
+            box-shadow: var(--shadow);
         }
         h2 {
-            margin-top: 0;
+            margin: 0 0 10px;
             font-size: 22px;
-            letter-spacing: 0.2px;
         }
-        .pill {
-            display: inline-block;
-            padding: 6px 10px;
-            margin: 6px 6px 0 0;
-            border-radius: 999px;
-            background: rgba(148,163,184,0.12);
-            color: var(--muted);
-            font-weight: 600;
-            font-size: 13px;
-        }
+        .muted { color: var(--muted); }
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+            margin-top: 12px;
         }
         .card {
-            padding: 16px;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(148,163,184,0.1);
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 14px;
         }
         .card h3 {
             margin: 0 0 6px;
-            font-size: 18px;
+            font-size: 17px;
         }
         .card p {
             margin: 0;
             color: var(--muted);
         }
         ul {
-            padding-left: 18px;
             margin: 10px 0;
+            padding-left: 18px;
             color: var(--muted);
         }
-        .highlight {
-            color: var(--accent);
-            font-weight: 700;
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        .pill {
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.06);
+            color: var(--text);
+            font-weight: 600;
+            font-size: 13px;
+        }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-top: 10px;
+        }
+        .step {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 12px 14px;
+        }
+        .step strong {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 10px;
+            background: rgba(59,130,246,0.15);
+            color: #bfdbfe;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+        .cta-block {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 12px;
+            align-items: center;
+        }
+        .cta-card {
+            background: linear-gradient(135deg, rgba(59,130,246,0.16), rgba(34,197,94,0.16));
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 16px;
         }
         footer {
             text-align: center;
-            padding: 24px;
+            padding: 16px;
             color: var(--muted);
             font-size: 14px;
         }
-        @media (max-width: 640px) {
-            section {
-                padding: 20px;
-            }
+        @media (max-width: 720px) {
+            header { flex-direction: column; align-items: flex-start; }
+            .hero { padding-top: 10px; }
         }
     </style>
 </head>
 <body>
     <header>
-        <span class="badge">Para gerentes, administradores y CEOs en Chile</span>
-        <h1>Decisiones más rápidas con datos confiables y automatización inteligente</h1>
-        <p class="subtitle">Te ayudo a que tu equipo tome decisiones informadas sin tecnicismos innecesarios. Implemento dashboards en Power BI, automatizaciones con Power Automate y casos de uso de IA generativa con foco en resultados del negocio, no en la tecnología.</p>
-        <a class="cta" href="mailto:hola@asesoriadatospremium.cl?subject=Quiero%20agendar%20una%20reuni%C3%B3n">Agendar una llamada de diagnóstico gratuita →</a>
+        <div class="brand">
+            <span>BI</span>
+            Asesoría Datos & IA · Chile
+        </div>
+        <a class="cta-header" href="mailto:hola@asesoriadatospremium.cl?subject=Quiero%20agendar%20una%20reuni%C3%B3n">Agendar diagnóstico</a>
     </header>
 
+    <section class="hero panel">
+        <div>
+            <div class="badge">Para gerentes, administradores y CEOs en Chile</div>
+            <h1>Convierte datos, automatización e IA en decisiones claras y rápidas</h1>
+            <p class="sub">Implementamos dashboards en Power BI, flujos con Power Automate y casos de IA generativa enfocados en resultados del negocio, sin jerga técnica. Trabajamos contigo y tu equipo para lograr visibilidad, velocidad y confianza en la información.</p>
+            <div style="display:flex; gap:14px; flex-wrap: wrap;">
+                <a class="cta" href="mailto:hola@asesoriadatospremium.cl?subject=Quiero%20agendar%20una%20reuni%C3%B3n">Agendar llamada gratuita →</a>
+                <a class="secondary" href="#servicios">Ver servicios</a>
+            </div>
+            <div class="metrics">
+                <div class="metric">
+                    <strong>70% menos tiempo</strong>
+                    en preparar reportes mensuales.
+                </div>
+                <div class="metric">
+                    <strong>Alertas en minutos</strong>
+                    cuando ventas, costos o SLA se desvían.
+                </div>
+                <div class="metric">
+                    <strong>Casos validados</strong>
+                    Retail, servicios B2B, educación y finanzas.
+                </div>
+            </div>
+        </div>
+        <div class="cta-card">
+            <h3 style="margin: 0 0 8px;">Tablero ejecutivo y automatización en 2 semanas</h3>
+            <p class="muted" style="margin: 0 0 12px;">Prototipo rápido para validar valor y usabilidad con tu equipo directivo.</p>
+            <ul>
+                <li>Indicadores clave con trazabilidad.</li>
+                <li>Alertas y aprobaciones automáticas.</li>
+                <li>Capacitación breve para lectura del tablero.</li>
+            </ul>
+            <a class="cta" style="margin-top: 10px;" href="mailto:hola@asesoriadatospremium.cl?subject=Quiero%20un%20prototipo%20en%202%20semanas">Solicitar prototipo →</a>
+        </div>
+    </section>
+
     <main>
-        <section>
-            <h2>¿Qué problema resolvemos?</h2>
+        <section id="problemas">
+            <h2>Lo que resolvemos para la dirección</h2>
+            <p class="muted">Diseñamos soluciones para que las gerencias tomen decisiones con datos confiables y sin fricción.</p>
             <div class="grid">
                 <div class="card">
-                    <h3>Visibilidad</h3>
-                    <p>Transformamos tus reportes manuales en tableros ejecutivos que muestran ventas, costos y operaciones en tiempo real.</p>
+                    <h3>Visibilidad inmediata</h3>
+                    <p>Consolida ventas, costos y operaciones en un solo tablero con alertas proactivas.</p>
                 </div>
                 <div class="card">
-                    <h3>Tiempo</h3>
-                    <p>Automatizamos flujos repetitivos (aprobaciones, alertas, integraciones) para que tu equipo se dedique a decisiones, no a copiar y pegar.</p>
+                    <h3>Tiempo recuperado</h3>
+                    <p>Automatizamos aprobaciones, reportes y recordatorios para reducir tareas manuales.</p>
                 </div>
                 <div class="card">
-                    <h3>Confianza</h3>
-                    <p>Diseñamos modelos de datos con trazabilidad y reglas claras, reduciendo errores y discusiones sobre “la versión correcta”.</p>
+                    <h3>Confianza en los datos</h3>
+                    <p>Modelos de datos con trazabilidad, control de accesos y definiciones claras.</p>
+                </div>
+                <div class="card">
+                    <h3>Adopción sin jerga</h3>
+                    <p>Capacitaciones ejecutivas y guías simples para que el uso sea inmediato.</p>
                 </div>
             </div>
         </section>
 
-        <section>
+        <section id="servicios">
             <h2>Servicios clave</h2>
             <div class="grid">
                 <div class="card">
-                    <h3>Dashboards ejecutivos en Power BI</h3>
-                    <p>Indicadores en tiempo real, con alertas y storytelling visual adaptado a directorios. Incluye capacitación corta para lectura del tablero.</p>
+                    <h3>Dashboards en Power BI</h3>
+                    <p>Indicadores en tiempo real, storytelling para directorio y exportables listos para comité.</p>
                 </div>
                 <div class="card">
                     <h3>Automatización con Power Automate</h3>
-                    <p>Flujos de aprobación, conciliaciones, recordatorios y conexión entre sistemas (ERP, CRM, planillas) sin re-trabajo manual.</p>
+                    <p>Flujos de aprobación, conciliaciones, recordatorios y conexión ERP/CRM/planillas.</p>
                 </div>
                 <div class="card">
                     <h3>Casos de IA generativa</h3>
-                    <p>Resumen automático de minutas, clasificación de tickets y redacción asistida para equipos comerciales y de operaciones.</p>
+                    <p>Resumen de minutas, clasificación de tickets y redacción asistida para ventas y operaciones.</p>
                 </div>
                 <div class="card">
-                    <h3>Gobernanza de datos</h3>
-                    <p>Definimos roles, calidad de datos y controles de acceso para cumplir con políticas internas y normativas locales.</p>
+                    <h3>Gobernanza y calidad de datos</h3>
+                    <p>Roles, estándares y controles para que la información sea consistente y segura.</p>
                 </div>
+            </div>
+            <div class="pill-row">
+                <div class="pill">Power BI</div>
+                <div class="pill">Power Automate</div>
+                <div class="pill">IA generativa</div>
+                <div class="pill">Analytics</div>
+                <div class="pill">Gobernanza</div>
+                <div class="pill">Onboarding ejecutivo</div>
             </div>
         </section>
 
-        <section>
+        <section id="resultados">
             <h2>Resultados que puedes esperar</h2>
             <ul>
-                <li><span class="highlight">70% menos tiempo</span> en preparación de reportes mensuales.</li>
-                <li><span class="highlight">Alertas proactivas</span> cuando ventas, costos o niveles de servicio se desvían.</li>
-                <li><span class="highlight">Indicadores consistentes</span> para directorios y comités, con respaldo en datos trazables.</li>
-                <li><span class="highlight">Capacitación ejecutiva</span> para que la adopción sea simple y sin jerga técnica.</li>
+                <li><strong style="color: var(--accent-2);">70% menos tiempo</strong> en preparación de reportes mensuales y cierres.</li>
+                <li><strong style="color: var(--accent-2);">Alertas proactivas</strong> cuando ventas, costos o niveles de servicio se desvían.</li>
+                <li><strong style="color: var(--accent-2);">Indicadores consistentes</strong> para directorios y comités, con respaldo en datos trazables.</li>
+                <li><strong style="color: var(--accent-2);">Adopción rápida</strong> con capacitación ejecutiva y manual de lectura claro.</li>
             </ul>
         </section>
 
-        <section>
+        <section id="proceso">
             <h2>Cómo trabajamos</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>1. Diagnóstico</h3>
-                    <p>Sesión de 45 minutos para entender objetivos del negocio y brechas de información.</p>
+            <div class="steps">
+                <div class="step">
+                    <strong>1. Diagnóstico</strong>
+                    <p>Sesión de 45 minutos para entender objetivos y brechas de información.</p>
                 </div>
-                <div class="card">
-                    <h3>2. Prototipo rápido</h3>
-                    <p>Primer tablero o flujo automatizado en menos de 2 semanas para validar valor y usabilidad.</p>
+                <div class="step">
+                    <strong>2. Prototipo rápido</strong>
+                    <p>Primer tablero o flujo automatizado en menos de 2 semanas para validar valor.</p>
                 </div>
-                <div class="card">
-                    <h3>3. Entrega y adopción</h3>
-                    <p>Capacitaciones breves para gerencias, manual ejecutivo y soporte de acompañamiento.</p>
+                <div class="step">
+                    <strong>3. Entrega y adopción</strong>
+                    <p>Capacitaciones breves, manual ejecutivo y acompañamiento inicial.</p>
+                </div>
+                <div class="step">
+                    <strong>4. Escala y gobierno</strong>
+                    <p>Controles de calidad, accesos y mejoras continuas para mantener el valor.</p>
                 </div>
             </div>
         </section>
 
-        <section>
+        <section id="casos">
             <h2>Casos recientes en Chile</h2>
             <div class="grid">
                 <div class="card">
                     <h3>Retail regional</h3>
-                    <p>Consolidamos ventas y stock desde 4 sucursales. El directorio recibe alertas diarias cuando la rotación cae bajo el objetivo.</p>
+                    <p>Unimos ventas y stock de 4 sucursales. Alertas diarias cuando la rotación cae bajo objetivo.</p>
                 </div>
                 <div class="card">
                     <h3>Servicios B2B</h3>
-                    <p>Automatizamos la aprobación de órdenes de trabajo y su facturación. Reducción de 5 a 1 día en ciclo de cobro.</p>
+                    <p>Aprobaciones y facturación automatizadas. Ciclo de cobro bajó de 5 a 1 día.</p>
                 </div>
                 <div class="card">
                     <h3>Educación</h3>
-                    <p>Dashboards de matrícula y morosidad para rectoría, con proyecciones de flujo de caja y escenarios.</p>
+                    <p>Dashboards de matrícula y morosidad para rectoría, con escenarios de flujo de caja.</p>
+                </div>
+                <div class="card">
+                    <h3>Finanzas</h3>
+                    <p>Conciliación automática y trazabilidad de KPIs clave para el comité de riesgos.</p>
                 </div>
             </div>
         </section>
 
-        <section>
-            <h2>Próximo paso</h2>
-            <p style="color: var(--muted);">Agenda una conversación breve para mapear tus indicadores críticos y priorizar el caso de mayor impacto.</p>
-            <a class="cta" href="mailto:hola@asesoriadatospremium.cl?subject=Quiero%20agendar%20una%20reuni%C3%B3n">Agendar llamada →</a>
-            <div style="margin-top: 16px;">
-                <span class="pill">Power BI</span>
-                <span class="pill">Power Automate</span>
-                <span class="pill">Analítica</span>
-                <span class="pill">IA generativa</span>
-                <span class="pill">Gobernanza</span>
+        <section id="cta">
+            <div class="cta-block">
+                <div>
+                    <h2>Listo para ver tu primer tablero en 2 semanas</h2>
+                    <p class="muted">Agenda una conversación breve para mapear tus indicadores críticos y priorizar el caso de mayor impacto.</p>
+                </div>
+                <div style="display:flex; gap:12px; flex-wrap: wrap;">
+                    <a class="cta" href="mailto:hola@asesoriadatospremium.cl?subject=Quiero%20agendar%20una%20reuni%C3%B3n">Agendar llamada →</a>
+                    <a class="secondary" href="mailto:hola@asesoriadatospremium.cl?subject=Quiero%20ver%20ejemplos">Solicitar ejemplos</a>
+                </div>
             </div>
         </section>
     </main>
